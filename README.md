@@ -1,1 +1,1 @@
-World Cup 2026 Simulator based on teams ELO
+World Cup 2026 Simulator based on team's ELO
