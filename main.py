@@ -3,83 +3,83 @@ import random
 ####################################################################
 # Données initiales
 ####################################################################
-EloDenominator_group = 200
-EloDenominator_KO = 215
-draw_min = 0.08
-draw_max = 0.3
-beta = 0.0006
+EloDenominator_group = 300
+EloDenominator_KO = 300
+draw_min = 0.1
+draw_max = 0.4
+beta = 0.0005
 
 Teams = [
 # Group A
-    {"Elo": 1791, "Team": "Mexico", "Position": "A1", "pts": 0},
-    {"Elo": 1753, "Team": "Austria", "Position": "A2", "pts": 0},
-    {"Elo": 1607, "Team": "Egypt", "Position": "A3", "pts": 0},
-    {"Elo": 1546, "Team": "Bolivia", "Position": "A4", "pts": 0},
+    {"Elo": 3697, "Team": "Mexico", "Position": "A1", "pts": 0},
+    {"Elo": 3010, "Team": "South Africa", "Position": "A2", "pts": 0},
+    {"Elo": 3281, "Team": "South Korea", "Position": "A3", "pts": 0},
+    {"Elo": 3147, "Team": "Czechia", "Position": "A4", "pts": 0},
 # Group B
-    {"Elo": 1702, "Team": "Canada", "Position": "B1", "pts": 0},
-    {"Elo": 1866, "Team": "Colombia", "Position": "B2", "pts": 0},
-    {"Elo": 1732, "Team": "Norway", "Position": "B3", "pts": 0},
-    {"Elo": 1611, "Team": "Uzbekistan", "Position": "B4", "pts": 0},
+    {"Elo": 3335, "Team": "Canada", "Position": "B1", "pts": 0},
+    {"Elo": 3013, "Team": "Bosnia", "Position": "B2", "pts": 0},
+    {"Elo": 2822, "Team": "Qatar", "Position": "B3", "pts": 0},
+    {"Elo": 3639, "Team": "Switzerland", "Position": "B4", "pts": 0},
 
 # Group C
-    {"Elo": 1939, "Team": "England", "Position": "C1", "pts": 0},
-    {"Elo": 1781, "Team": "Switzerland", "Position": "C2", "pts": 0},
-    {"Elo": 1706, "Team": "Paraguay", "Position": "C3", "pts": 0},
-    {"Elo": 1520, "Team": "Saudi Arabia", "Position": "C4", "pts": 0},
+    {"Elo": 3835, "Team": "Brazil", "Position": "C1", "pts": 0},
+    {"Elo": 3674, "Team": "Morocco", "Position": "C2", "pts": 0},
+    {"Elo": 2781, "Team": "Haiti", "Position": "C3", "pts": 0},
+    {"Elo": 3236, "Team": "Scotland", "Position": "C4", "pts": 0},
 
 # Group D
-    {"Elo": 1687, "Team": "USA", "Position": "D1", "pts": 0},
-    {"Elo": 1789, "Team": "Denmark", "Position": "D2", "pts": 0},
-    {"Elo": 1547, "Team": "Côte d'Ivoire", "Position": "D3", "pts": 0},
-    {"Elo": 1536, "Team": "Jordan", "Position": "D4", "pts": 0},
+    {"Elo": 3488, "Team": "USA", "Position": "D1", "pts": 0},
+    {"Elo": 3365, "Team": "Paraguay", "Position": "D2", "pts": 0},
+    {"Elo": 3376, "Team": "Australia", "Position": "D3", "pts": 0},
+    {"Elo": 3434, "Team": "Turkiye", "Position": "D4", "pts": 0},
 
 # Group E
-    {"Elo": 1878, "Team": "Netherlands", "Position": "E1", "pts": 0},
-    {"Elo": 1808, "Team": "Germany", "Position": "E2", "pts": 0},
-    {"Elo": 1795, "Team": "Ecuador", "Position": "E3", "pts": 0},
-    {"Elo": 1496, "Team": "South Africa", "Position": "E4", "pts": 0},
+    {"Elo": 3634, "Team": "Germany", "Position": "E1", "pts": 0},
+    {"Elo": 2723, "Team": "Curacao", "Position": "E2", "pts": 0},
+    {"Elo": 3292, "Team": "Ivory Coast", "Position": "E3", "pts": 0},
+    {"Elo": 3463, "Team": "Ecuador", "Position": "E4", "pts": 0},
 
 # Group F
-    {"Elo": 1844, "Team": "Croatia", "Position": "F1", "pts": 0},
-    {"Elo": 1739, "Team": "Sénégal", "Position": "F2", "pts": 0},
-    {"Elo": 1707, "Team": "Australia", "Position": "F3", "pts": 0},
-    {"Elo": 1329, "Team": "El Salvador", "Position": "F4", "pts": 0},
+    {"Elo": 3746, "Team": "Netherlands", "Position": "F1", "pts": 0},
+    {"Elo": 3561, "Team": "Japan", "Position": "F2", "pts": 0},
+    {"Elo": 3256, "Team": "Sweden", "Position": "F3", "pts": 0},
+    {"Elo": 2988, "Team": "Tunisia", "Position": "F4", "pts": 0},
 
 # Group G
-    {"Elo": 2013, "Team": "Argentina", "Position": "G1", "pts": 0},
-    {"Elo": 1773, "Team": "Japan", "Position": "G2", "pts": 0},
-    {"Elo": 1646, "Team": "Wales", "Position": "G3", "pts": 0},
-    {"Elo": 1304, "Team": "Suriname", "Position": "G4", "pts": 0},
+    {"Elo": 3666, "Team": "Belgium", "Position": "G1", "pts": 0},
+    {"Elo": 3344, "Team": "Egypt", "Position": "G2", "pts": 0},
+    {"Elo": 3373, "Team": "Iran", "Position": "G3", "pts": 0},
+    {"Elo": 2803, "Team": "New Zealand", "Position": "G4", "pts": 0},
 
 # Group H
-    {"Elo": 2057, "Team": "Spain", "Position": "H1", "pts": 0},
-    {"Elo": 1701, "Team": "South Korea", "Position": "H2", "pts": 0},
-    {"Elo": 1544, "Team": "Nigeria", "Position": "H3", "pts": 0},
-    {"Elo": 1504, "Team": "Honduras", "Position": "H4", "pts": 0},
+    {"Elo": 4051, "Team": "Spain", "Position": "H1", "pts": 0},
+    {"Elo": 3043, "Team": "Cabo Verde", "Position": "H2", "pts": 0},
+    {"Elo": 3021, "Team": "Saudi Arabia", "Position": "H3", "pts": 0},
+    {"Elo": 3475, "Team": "Uruguay", "Position": "H4", "pts": 0},
 
 # Group I
-    {"Elo": 1936, "Team": "Portugal", "Position": "I1", "pts": 0},
-    {"Elo": 1709, "Team": "Iran", "Position": "I2", "pts": 0},
-    {"Elo": 1618, "Team": "Algeria", "Position": "I3", "pts": 0},
-    {"Elo": 1493, "Team": "Jamaica", "Position": "I4", "pts": 0},
+    {"Elo": 4050, "Team": "France", "Position": "I1", "pts": 0},
+    {"Elo": 3469, "Team": "Senegal", "Position": "I2", "pts": 0},
+    {"Elo": 2965, "Team": "Iraq", "Position": "I3", "pts": 0},
+    {"Elo": 3551, "Team": "Norway", "Position": "I4", "pts": 0},
 
 # Group J
-    {"Elo": 1890, "Team": "Brazil", "Position": "J1", "pts": 0},
-    {"Elo": 1819, "Team": "Italy", "Position": "J2", "pts": 0},
-    {"Elo": 1575, "Team": "Tunisia", "Position": "J3", "pts": 0},
-    {"Elo": 1466, "Team": "New Zealand", "Position": "J4", "pts": 0},
+    {"Elo": 4055, "Team": "Argentina", "Position": "J1", "pts": 0},
+    {"Elo": 3332, "Team": "Algeria", "Position": "J2", "pts": 0},
+    {"Elo": 3419, "Team": "Austria", "Position": "J3", "pts": 0},
+    {"Elo": 2978, "Team": "Jordan", "Position": "J4", "pts": 0},
 
 # Group K
-    {"Elo": 1989, "Team": "France", "Position": "K1", "pts": 0},
-    {"Elo": 1776, "Team": "Morocco", "Position": "K2", "pts": 0},
-    {"Elo": 1692, "Team": "Serbia", "Position": "K3", "pts": 0},
-    {"Elo": 1474, "Team": "Qatar", "Position": "K4", "pts": 0},
+    {"Elo": 3800, "Team": "Portugal", "Position": "K1", "pts": 0},
+    {"Elo": 3199, "Team": "DR Congo", "Position": "K2", "pts": 0},
+    {"Elo": 3040, "Team": "Uzbekistan", "Position": "K3", "pts": 0},
+    {"Elo": 3733, "Team": "Colombia", "Position": "K4", "pts": 0},
 
 # Group L
-    {"Elo": 1806, "Team": "Belgium", "Position": "L1", "pts": 0},
-    {"Elo": 1813, "Team": "Uruguay", "Position": "L2", "pts": 0},
-    {"Elo": 1723, "Team": "Turkiye", "Position": "L3", "pts": 0},
-    {"Elo": 1430, "Team": "Ghana", "Position": "L4", "pts": 0}
+    {"Elo": 3896, "Team": "England", "Position": "L1", "pts": 0},
+    {"Elo": 3605, "Team": "Croatia", "Position": "L2", "pts": 0},
+    {"Elo": 3136, "Team": "Panama", "Position": "L3", "pts": 0},
+    {"Elo": 2962, "Team": "Ghana", "Position": "L4", "pts": 0}
 ]
 
 ####################################################################
@@ -126,7 +126,7 @@ def group_stage(A1, A2, A3, A4):
     play_game_pts(A2, A4)
     play_game_pts(A3, A4)
 
-    # Ajouter un petit nombre aléatoire (jusqu'à 0.05) pour briser l'égalité
+    # Ajouter un petit nombre aléatoire pour briser l'égalité
     for equipe in Liste:
         equipe["pts_ajuste"] = equipe["pts"] + random.uniform(0, 0.05)
 
@@ -137,7 +137,7 @@ def group_stage(A1, A2, A3, A4):
     for rang, equipe in enumerate(Liste_trie, start=1):
         equipe["rang"] = rang
 
-    # Supprimer la clé 'pts_ajuste' (si non nécessaire pour la sortie)
+    # Supprimer la clé pts_ajuste
     for equipe in Liste_trie:
         del equipe["pts_ajuste"]
 
@@ -283,37 +283,40 @@ Y4 = {'Elo': 0, 'Team': 'bye', 'Position': 'Y4', 'pts': 0, 'rang': 4}
 
 
 
-KO_Stage_Teams = [E1, Z1, I1, Z2, A2, B2, F1, C2, C1, F2, E2, I2, A1, Z3, L1, Z4,
-                  K2, L2, H1, J2, D1, Y1, G1, Y2, J1, H2, D2, G2, B1, Y3, K1, Y4]
+# KO_Stage_Teams = [E1, Z1, I1, Z2, A2, B2, F1, C2, C1, F2, E2, I2, A1, Z3, L1, Z4,
+#                   K2, L2, H1, J2, D1, Y1, G1, Y2, J1, H2, D2, G2, B1, Y3, K1, Y4]
+
+KO_Stage_Teams = [A2, B2, F1, C2, E1, Z1, I1, Z2, G1, Z3, D1, Z4, H1, J2, K2, L2,
+                  C1, F2, E2, I2, A1, Y1, L1, Y2, B1, Y3, K1, Y4, D2, G2, J1, H2]
 
 WW = play_bracket(KO_Stage_Teams)
 
 
 
 print(f"""
-    {E1["Team"]:<10}{K2["Team"]:>122}
-    {Z1["Team"]:<10}{L2["Team"]:>122}
+    {A2["Team"]:<10}{C1["Team"]:>122}
+    {B2["Team"]:<10}{F2["Team"]:>122}
     {WW[0][0]:>25}{WW[0][8]:>83}
-    {I1["Team"]:<10}{WW[0][1]:>15}{WW[0][9]:>83}{H1["Team"]:>22}
-    {Z2["Team"]:<10}{J2["Team"]:>122}
+    {F1["Team"]:<10}{WW[0][1]:>15}{WW[0][9]:>83}{E2["Team"]:>22}
+    {C2["Team"]:<10}{I2["Team"]:>122}
     {WW[1][0]:>35}{WW[4][0]:>22}{WW[1][4]:>34}
-    {A2["Team"]:<10}{WW[1][1]:>25}{WW[1][5]:>55}{D1["Team"]:>42}
-    {B2["Team"]:<10}{Y1["Team"]:>122}
+    {E1["Team"]:<10}{WW[1][1]:>25}{WW[1][5]:>55}{A1["Team"]:>42}
+    {Z1["Team"]:<10}{Y1["Team"]:>122}
     {WW[0][2]:>25}{WW[3][0]:>30}{WW[0][10]:>54}
-    {F1["Team"]:<10}{WW[0][3]:>15}{WW[3][1]:>30}{WW[0][11]:>54}{G1["Team"]:>22}
-    {C2["Team"]:<10}{Y2["Team"]:>122}
+    {I1["Team"]:<10}{WW[0][3]:>15}{WW[3][1]:>30}{WW[0][11]:>54}{L1["Team"]:>22}
+    {Z2["Team"]:<10}{Y2["Team"]:>122}
     
-    {C1["Team"]:<10}{WW[2][0]:>35}{WW[2][2]:>27}{J1["Team"]:>60}
-    {F2["Team"]:<10}{WW[0][4]:>15}{WW[2][1]:>20}{WW[2][3]:>25}{WW[0][12]:>38}{H2["Team"]:>25}
+    {G1["Team"]:<10}{WW[2][0]:>35}{WW[2][2]:>27}{B1["Team"]:>60}
+    {Z3["Team"]:<10}{WW[0][4]:>15}{WW[2][1]:>20}{WW[2][3]:>25}{WW[0][12]:>38}{Y3["Team"]:>25}
     {WW[0][5]:>25}{WW[0][13]:>84}
-    {E2["Team"]:<10}{D2["Team"]:>122}
-    {I2["Team"]:<10}{WW[1][2]:>25}{WW[1][6]:>55}{G2["Team"]:>45}
+    {D1["Team"]:<10}{K1["Team"]:>122}
+    {Z4["Team"]:<10}{WW[1][2]:>25}{WW[1][6]:>55}{Y4["Team"]:>45}
     {WW[1][3]:>35}{WW[1][7]:>55}
-    {A1["Team"]:<10}{B1["Team"]:>122}
-    {Z3["Team"]:<10}{WW[0][6]:>15}{WW[0][14]:>83}{Y3["Team"]:>25}
+    {H1["Team"]:<10}{D2["Team"]:>122}
+    {J2["Team"]:<10}{WW[0][6]:>15}{WW[0][14]:>83}{G2["Team"]:>25}
     {WW[0][7]:>25}{WW[0][15]:>84}
-    {L1["Team"]:<10}{K1["Team"]:>122}
-    {Z4["Team"]:<10}{Y4["Team"]:>122}
+    {K2["Team"]:<10}{J1["Team"]:>122}
+    {L2["Team"]:<10}{H2["Team"]:>122}
     
     
 """)
